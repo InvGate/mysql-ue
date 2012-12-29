@@ -1,0 +1,5 @@
+You must have NSIS installed in order to compile this script.
+
+1. Compile with "makensis mysql.nsi" on a command line. It will produce MySQL-UI.exe.
+2. Execute MySQL-UI.exe with administrator privilegies, wait...
+3. Your MySQL 5.5 is now installed. Te root password is "root".
