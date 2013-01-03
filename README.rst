@@ -12,38 +12,37 @@ enough task for even the dumbest of sysadmins. It just uses sane defaults
 for all the options in the MySQL MSI.
 
 Detailed configuration
----------------------
+----------------------
 
-**Server type: Developer Machine
+* Server type: Developer Machine
 
-**Database usage: Multifunctional Database
+* Database usage: Multifunctional Database
 
-**Drive for the InnoDB datafile: c:\Program Files (x86)\MySQL
+* Drive for the InnoDB datafile: Default
 
-**Number of concurrent connections: Decision Support (DSS)/OLAP
+* Number of concurrent connections: Decision Support (DSS)/OLAP
 
-*Networking options.
-**TCP/IP Networking: Yes
-**Port Number: 3306
+* Networking options.
+	- TCP/IP Networking: Yes
+	- Port Number: 3306
 
-*Server SQL Mode.
-**Enable Strict Mode: No
 
-**Default character set: Standard Character Set
+* Server SQL Mode.
+	- Enable Strict Mode: No
 
-*Windows options.
-**Install As Windows Service: Yes
-**Service Name: MySQL
-**Launch the MySQL Server automatically: Yes.
+* Default character set: Standard Character Set
 
-**Enclude Bin Directory in Windows PATH: No.
+* Windows options.
+	- Install As Windows Service: Yes
+	- Service Name: MySQL
+	- Launch the MySQL Server automatically: Yes.
+	- Include Bin Directory in Windows PATH: Yes.
 
-*Security options.
-**Modify security settings: Yes.
-**New root password: root
-**Enable root acces from remote machines: No.
-
-**Create An Anonymous Account: No.
+* Security options.
+	- Modify security settings: Yes.
+	- New root password: root
+	- Enable root acces from remote machines: No.
+	- Create An Anonymous Account: No.
 
 The default configuration is only meant to allow a second software package
 to easily log into the database server and change access control rules in a
