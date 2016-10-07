@@ -2,10 +2,11 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "MariaDB Simplified Installer"
-!define PRODUCT_VERSION "10.1.9"
+!define PRODUCT_VERSION "10.1.18"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 !define PRODUCT_DIR "$PROGRAMFILES\MariaDB"
+!include x64.nsh
 
 ; MUI 1.67 compatible ------
 !include "MUI.nsh"
@@ -60,14 +61,20 @@ Function .onInit
          !insertmacro MUI_LANGDLL_DISPLAY
 FunctionEnd
 
-Section "MariaDB 10.1.9" SEC01
+Section "MariaDB 10.1.18" SEC01
   SetOutPath "$PROGRAMFILES\MariaDB\"
   SetOverwrite ifnewer
-  File "mariadb-10.1.9-win32.msi"
+  File "mariadb-10.1.18-win32.msi"
+  File "mariadb-10.1.18-winx64.msi"
 SectionEnd
 
 
 Section -Post
-  ExecWait "msiexec /i $\"$PROGRAMFILES\MariaDB\mariadb-10.1.9-win32.msi$\" /qn SERVICENAME=MariaDB PASSWORD=root"
+${If} ${RunningX64}
+    ExecWait "msiexec /i $\"$PROGRAMFILES\MariaDB\mariadb-10.1.18-winx64.msi$\" /qn SERVICENAME=MariaDB PASSWORD=root"
+${Else}
+    ExecWait "msiexec /i $\"$PROGRAMFILES\MariaDB\mariadb-10.1.18-win32.msi$\" /qn SERVICENAME=MariaDB PASSWORD=root"
+${EndIf} 
+  
 SectionEnd
 
