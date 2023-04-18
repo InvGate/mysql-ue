@@ -48,11 +48,11 @@
 !include MultiUser.nsh
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "build/MariaDB-UE.exe"
-InstallDir "$PROGRAMFILES\MariaDB"
+OutFile "build/MysqlDB-UE.exe"
+InstallDir "$PROGRAMFILES\MysqlDB"
 ShowInstDetails show
 ;ShowUnInstDetails show
-Caption "MariaDB Simplified Installer"
+Caption "MysqlDB Simplified Installer"
 Function .onInit
          
          !insertmacro MULTIUSER_INIT
@@ -61,20 +61,17 @@ Function .onInit
          !insertmacro MUI_LANGDLL_DISPLAY
 FunctionEnd
 
-Section "MariaDB 10.1.18" SEC01
-  SetOutPath "$PROGRAMFILES\MariaDB\"
+Section "MySQL 8" SEC01
+  SetOutPath "$PROGRAMFILES\MYSQL\"
   SetOverwrite ifnewer
-  File "mariadb-10.1.18-win32.msi"
-  File "mariadb-10.1.18-winx64.msi"
+  File "mysql-installer-community-8.0.32.0.msi"
+  File vcredist_x64.exe
 SectionEnd
 
 
 Section -Post
-${If} ${RunningX64}
-    ExecWait "msiexec /i $\"$PROGRAMFILES\MariaDB\mariadb-10.1.18-winx64.msi$\" /qn SERVICENAME=MariaDB PASSWORD=root"
-${Else}
-    ExecWait "msiexec /i $\"$PROGRAMFILES\MariaDB\mariadb-10.1.18-win32.msi$\" /qn SERVICENAME=MariaDB PASSWORD=root"
-${EndIf} 
-  
+ExecWait "$\"$PROGRAMFILES\MYSQL\vcredist_x64.exe$\" /q /norestart"
+ExecWait "msiexec /quiet /qn /i $\"$PROGRAMFILES\MYSQL\mysql-installer-community-8.0.32.0.msi$\""
+ExecWait "$\"$PROGRAMFILES\MYSql\MySQL Installer for Windows\MySQLInstallerConsole.exe$\" community install server;8.0.32;X64:*:port=3306;password=root;win_service_name=MySQL --silent"
 SectionEnd
 
