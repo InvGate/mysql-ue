@@ -64,14 +64,14 @@ FunctionEnd
 Section "MySQL 8" SEC01
   SetOutPath "$PROGRAMFILES\MYSQL\"
   SetOverwrite ifnewer
-  File "mysql-installer-community-8.0.34.0.msi"
+  File "mysql-installer-community-8.0.35.0.msi"
   File vcredist_x64.exe
 SectionEnd
 
 
 Section -Post
 ExecWait "$\"$PROGRAMFILES\MYSQL\vcredist_x64.exe$\" /q /norestart"
-ExecWait "msiexec /quiet /qn /i $\"$PROGRAMFILES\MYSQL\mysql-installer-community-8.0.34.0.msi$\""
-ExecWait "$\"$PROGRAMFILES\MYSql\MySQL Installer for Windows\MySQLInstallerConsole.exe$\" community install server;8.0.34;X64:*:port=3306;password=root;win_service_name=MySQL --silent"
+ExecWait "msiexec /quiet /qn /i $\"$PROGRAMFILES\MYSQL\mysql-installer-community-8.0.35.0.msi$\""
+ExecWait "$\"$PROGRAMFILES\MYSql\MySQL Installer for Windows\MySQLInstallerConsole.exe$\" community install server;8.0.35;X64:*:port=3306;password=root;win_service_name=MySQL --silent"
 SectionEnd
 
