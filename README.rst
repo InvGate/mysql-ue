@@ -81,6 +81,6 @@ $ make
 A binary called ``MySQL-UE.exe`` will be created and can be installed on
 any Windows Server by just double clicking on it.
 
-Install the mysql 8.0.35 (mysql-installer-community-8.0.35.0.msi) installer from https://dev.mysql.com/downloads/windows/installer/8.0.html 
+Install the mysql 8.0.35 (mysql-installer-community-8.0.37.0.msi) installer from https://dev.mysql.com/downloads/windows/installer/8.0.html 
 Install vc_redist.x64.exe from https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170 
 Modify the name to  vcredist_x64.exe
